@@ -1,8 +1,9 @@
+
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-    Name = "Slaze",
-    LoadingTitle = "Slaze",
+    Name = "SlazeV2",
+    LoadingTitle = "SlazeV2",
     LoadingSubtitle = "By Slazero",
     ConfigurationSaving = {
        Enabled = true,
@@ -27,7 +28,9 @@ local Window = Rayfield:CreateWindow({
  })
 
  local MainTab = Window:CreateTab("Home", 4483362458) -- Title, Image
- 
+
+local MainTab = Window:CreateTab("guis", 4483362458) -- Title, Image
+
  local Button = MainTab:CreateButton({
     Name = "Skyhub",
     Callback = function()
@@ -1188,7 +1191,7 @@ OrionLib:Init()
     end,
  })
 
- local Button = GuiTab:CreateButton({
+ local Button = MainTab:CreateButton({
     Name = "Vortex for dahood",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ImagineProUser/vortexdahood/main/vortex", true))()
@@ -1196,7 +1199,7 @@ OrionLib:Init()
     end,
  })
 
- local Button = GuiTab:CreateButton({
+ local Button = MainTab:CreateButton({
     Name = "SwagMode",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002"))()
@@ -1204,42 +1207,42 @@ OrionLib:Init()
     end,
  })
 
- local Button = GuiTab:CreateButton({
+ local Button = MainTab:CreateButton({
 	Name = "Infinite Yield",
 	Callback = function()
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 	end,
  })
 
- local Button = GuiTab:CreateButton({
+ local Button = MainTab:CreateButton({
 	Name = "Sirius (patched)",
 	Callback = function()
 		loadstring(game:HttpGet('https://sirius.menu/script'))();	
 	end,
  })
 
- local Button = GuiTab:CreateButton({
+ local Button = MainTab:CreateButton({
 	Name = "EZ Hub",
 	Callback = function()
 		loadstring(game:HttpGet(('https://raw.githubusercontent.com/debug42O/Ez-Industries-Launcher-Data/master/Launcher.lua'),true))()	
 	end,
  })
 
- local Button = GuiTab:CreateButton({
+ local Button = MainTab:CreateButton({
 	Name = "VG Hub",
 	Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()	
     end,
  })
 
- local Button = GuiTab:CreateButton({
+ local Button = MainTab:CreateButton({
 	Name = "Chosen one R6",
 	Callback = function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/Cortzalno666/NectoVerse-Industries-Data/master/Scripts%20Folder/Honored.lua'),true))()	
     end,
  })
 
- local Button = GuiTab:CreateButton({
+ local Button = MainTab:CreateButton({
 	Name = "Tha Bronx 2",
 	Callback = function()
 	--[[
@@ -2354,25 +2357,17 @@ SaveManager:LoadAutoloadConfig()
 	end,
  })
 
- local Button = GuiTab:CreateButton({
+ local Button = MainTab:CreateButton({
     Name = "TBO Dahood",
     Callback = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/cool5013/TBO/main/TBOscript'))()
     end,
  })
 
- local Button = GUITab:CreateButton({
+ local Button = MainTab:CreateButton({
     Name = "Trustboy Dahood",
     Callback = function()
         loadstring(game:HttpGet('https://pastebin.com/raw/XXAWmifh'))() -- TrustBoy GUI   
     end,
  })
 
- local Tab = GuiWindow:CreateTab("Guis", 4483362458) -- Title, Image
-
- local Button = Tab:CreateButton({
-    Name = "youtube",
-    Callback = function()
-        https://www.youtube.com/channel/UCNHMda4q-JRuvs5NmTcXIHQ
-    end,
- })
