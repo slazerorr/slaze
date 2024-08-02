@@ -1,114 +1,254 @@
-local DarkraiX = loadstring(game:HttpGet("https://raw.githubusercontent.com/GamingScripter/Kavo-Ui/main/Darkrai%20Ui", true))()
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
-local Library = DarkraiX:Window("Slaze Hub","","",Enum.KeyCode.RightControl);
+-- Usual interfaces required for Slaze to run.
 
---[[
-DarkraiX:Window(
-1 = Name Of Your Ui Library (string)
-2 = Game Name (You Can Keep This Empty To Get The Current Game Name!) (string)
-3 = A Logo If You Have One! (string)
-4 = Ui Library Toggle (I'll Not Prefer Touching It) (function)
-);
-]]
+local Window = Fluent:CreateWindow({
+    Title = "SlazeV2 " .. Fluent.Version,
+    SubTitle = "by Slazero / slazeorr_43893 & RazAPI / razzy.cpp",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
+})
 
-Tab1 = Library:Tab("Gui's")
+local Tabs = {
+    Main = Window:AddTab({ Title = "Guis", Icon = "" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+}
 
-Tab1:Button("Skyhub",function()loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/SkyHub.txt"))()
-end)
+local Options = Fluent.Options
 
-Tab1:Button("Vortex for dahood",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ImagineProUser/vortexdahood/main/vortex", true))()
-end)
+    Tabs.Main:AddButton({
+        Title = "Skyhub",
+        Description = "Skyhub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/SkyHub.txt"))()
+    end
+ })
 
-Tab1:Button("SwagMode",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002"))()
-end)
+ Tabs.Main:AddButton({
+    Title = "Vortex - Dahood Script",
+    Description = "Vortex",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ImagineProUser/vortexdahood/main/vortex"))()
+    end
+})
 
-Tab1:Button("Infinite Yield",function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
+Tabs.Main:AddButton({
+    Title = "Swagmode",
+    Description = "SwagMode - Faded, but better.",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002"))()
+    end
+})
 
-Tab1:Button("Sirius",function()
-    loadstring(game:HttpGet('https://sirius.menu/script'))()
-end)
+Tabs.Main:AddButton({
+    Title = "Infinite Yield",
+    Description = "Oldest & Longest Living Universal Admin Script for 6 years.",
+    Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end
+})
 
-Tab1:Button("EZ Hub",function()
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/debug42O/Ez-Industries-Launcher-Data/master/Launcher.lua'),true))()	
-end)
+Tabs.Main:AddButton({
+    Title = "Sirus",
+    Description = "Cool hub",
+    Callback = function()
+		loadstring(game:HttpGet('https://sirius.menu/script'))()
+    end
+})
 
-Tab1:Button("VG Hub",function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()	
-end)
+Tabs.Main:AddButton({
+    Title = "EZLauncher",
+    Description = "OP Script",
+    Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/debug42O/Ez-Industries-Launcher-Data/master/Launcher.lua'))()	
+    end
+})
 
-Tab1:Button("Chosen one R6",function()
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/Cortzalno666/NectoVerse-Industries-Data/master/Scripts%20Folder/Honored.lua'),true))()	
-end)
+Tabs.Main:AddButton({
+    Title = "VG Hub",
+    Description = "Very op",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()	
+    end
+})
 
-Tab1:Button("TBO Dahood",function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/cool5013/TBO/main/TBOscript'))()
-end)
+Tabs.Main:AddButton({
+    Title = "Chosen one R6",
+    Description = "Funny",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Cortzalno666/NectoVerse-Industries-Data/master/Scripts%20Folder/Honored.lua'))()	
+    end
+})
 
-Tab1:Button("Trustboy Dahood",function()
-    loadstring(game:HttpGet('https://pastebin.com/raw/XXAWmifh'))() -- TrustBoy GUI   
-end)
+Tabs.Main:AddButton({
+    Title = "TBO Dahood",
+    Description = "Best dahood troll gui",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/cool5013/TBO/main/TBOscript'))()
+    end
+})
 
-Tab1:Button("Demonfall hacks",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/caydenthekile/scriptsv2/main/demonfall"))()
-end)
+Tabs.Main:AddButton({
+    Title = "Trustboy Dahood",
+    Description = "Unknown",
+    Callback = function()
+        loadstring(game:HttpGet('https://pastebin.com/raw/XXAWmifh'))()
+    end
+})
 
-Tab1:Button("CashHub Aimbot",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/c4shhh/cash-hub/main/cash%20hub"))()
-end)
+Tabs.Main:AddButton({
+    Title = "DemonFall",
+    Description = "DemonFall Script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/caydenthekile/scriptsv2/main/demonfall"))()
+    end
+})
 
-Tab1:Button("Azure Dahood",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Actyrn/Scripts/main/AzureModded"))()
-end)
+Tabs.Main:AddButton({
+    Title = "CashHub",
+    Description = "Aimbots",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/c4shhh/cash-hub/main/cash%20hub"))()
+    end
+})
 
-Tab1:Button("Fe troling gui",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau"))()
-end)
+Tabs.Main:AddButton({
+    Title = "Azure Dahood",
+    Description = "Good for PVP & Aimlock",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Actyrn/Scripts/main/AzureModded"))()
+    end
+})
 
-Tab1:Button("System broken",function()
-    local credits = "SystemBroken made by system_calix"
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
-end)
+Tabs.Main:AddButton({
+    Title = "FE Trolling GUI, SkyHub",
+    Description = "Has everything!",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau"))()
+    end
+})
 
-Tab1:Button("Destiny hub op",function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/EclipseHub/Eclipse/main/Eclipse.lua'))()
-end)
+Tabs.Main:AddButton({
+    Title = "Rochips panel",
+    Description = "(Broken)",
+    Callback = function()
+        if "Rochips Loader" then
+            local Rochips_panel,v,u,i=loadstring,"/snippets","gwwv","/raw/main.lua" ;
+            Rochips_panel(game:HttpGet("https://glot.io"..v.."/" ..u.."877ga3"..i))();
+            return "it will load in around 3 - 131 seconds"
+        end
+    end
+})
 
-Tab1:Button("Pet sim",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/NukeVsCity/Scripts2024/main/ps99"))()
-end)
+Tabs.Main:AddButton({
+    Title = "SystemBroken",
+    Description = "Funniest gui",
+    Callback = function()
+        local credits = "SystemBroken made by system_calix"
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
+    end
+})
 
-Tab1:Button("Cat piece gui",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Kaitofyp/Cat-Piece-V.2/main/Op%20script"))()
-end)
+Tabs.Main:AddButton({
+    Title = "EclipseHub",
+    Description = "Eclipsehub with a few enhancements.",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EclipseHub/Eclipse/main/Eclipse.lua'))()
+    end
+})
 
-Tab1:Button("Westbound",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Drrushh/Drrushh/main/Kdom",true))(); 
-end)
+Tabs.Main:AddButton({
+    Title = "Pet Sim",
+    Description = "Unknown",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/NukeVsCity/Scripts2024/main/ps99"))()
+    end
+})
 
-Tab1:Button("Aurora hub",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/cocotv666/Aurora/main/Aurora_Loader"))()
-end)
+Tabs.Main:AddButton({
+    Title = "Cat Piece",
+    Description = "Unknown",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Kaitofyp/Cat-Piece-V.2/main/Op%20script"))()
+    end
+})
 
-Tab1:Button("Thunder Client",function()
-    loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/b95e8fecdf824e41f4a030044b055add.lua"))()   
-end)
+Tabs.Main:AddButton({
+    Title = "Westbound",
+    Description = "Cool hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Drrushh/Drrushh/main/Kdom",true))(); 
+    end
+})
 
-Tab1:Button("Brookhaven",function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/TheDarkoneMarcillisePex/Other-Scripts/main/Brook%20Haven%20Gui'))()
-end)
+Tabs.Main:AddButton({
+    Title = "Aurora hub",
+    Description = "Cool",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cocotv666/Aurora/main/Aurora_Loader"))()
+    end
+})
 
-Tab1:Button("Script searcher",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/madonchik123/USL/main/main.lua"))()
-end)
+Tabs.Main:AddButton({
+    Title = "Thunder Client",
+    Description = "Very important button",
+    Callback = function()
+        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/b95e8fecdf824e41f4a030044b055add.lua"))()   
+    end
+})
 
-Tab1:Button("Orca",function()
-    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua"))()
-end)
+Tabs.Main:AddButton({
+    Title = "Brookhaven",
+    Description = "Very important button",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/TheDarkoneMarcillisePex/Other-Scripts/main/Brook%20Haven%20Gui'))()
+    end
+})
 
-Tab1:Button("Cathub",function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/catter-y/cat-hub/main/main'))()
-end)
+Tabs.Main:AddButton({
+    Title = "Script searcher",
+    Description = "Script Searcher, Useful for a executor with no Scripthub.",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/madonchik123/USL/main/main.lua"))()
+    end
+})
+
+Tabs.Main:AddButton({
+    Title = "Orca",
+    Description = "Great & Universal GUI for exploiting.",
+    Callback = function()
+        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/snapshot.lua"))()
+    end
+})
+
+Tabs.Main:AddButton({
+    Title = "CatHub",
+    Description = "Very cool!",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/catter-y/cat-hub/main/obf34"))()
+    end
+})
+
+Tabs.Main:AddButton({
+    Title = "Nameless Admin",
+    Description = "Nice & Universal FE Trolling Admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua"))()
+    end
+})
+
+
+Tabs.Main:AddButton({
+    Title = "Prizz Admin",
+    Description = "Prison Life Admin Commands, Better than Tiger Admin."
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/elliexmln/PrizzLife/main/pladmin.lua'))()
+    end
+})
+
+-- Full Loadstring, Make sure to remove the brackets like the ))() and " when click on the link >> loadstring(game:HttpGet("https://pastebin.com/raw/RAY7XW5c"))() 
